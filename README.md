@@ -8,6 +8,7 @@ Nyaya-Uday is a mobile-first judicial career discovery and simulation app that h
 - Judicial aptitude scoring
 - Lightweight PWA design
 - Multilingual-friendly interface
+- Leaderboard and motivational badges
 
 ## Technologies Used
 - HTML, CSS, JavaScript
