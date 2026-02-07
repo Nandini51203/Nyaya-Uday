@@ -59,9 +59,9 @@ Many students lack early awareness of judicial career paths, and existing soluti
 
 ## 👥 Team
 
-Vaishnavi Nimse
-Nandini Badgujar
-Shriya Amilkanthwar
+-Vaishnavi Nimse
+-Nandini Badgujar
+-Shriya Amilkanthwar
 
 ---
 
