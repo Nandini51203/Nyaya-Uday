@@ -1,4 +1,4 @@
-<img width="846" height="123" alt="image" src="https://github.com/user-attachments/assets/a0aab25e-1a5f-45ce-bfdf-ae353ea6718b" /># Nyaya-Uday
+# Nyaya-Uday
 
 Nyaya-Uday is a mobile-first judicial career discovery and simulation app that helps students understand the path to becoming a judge.
 
