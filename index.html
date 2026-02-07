@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nyaya-Uday | Judicial Career Discovery</title>
+    <meta
+      name="description"
+      content="Discover your path to becoming a judge in India. Free, lightweight judicial career guidance."
+    />
+    <meta name="theme-color" content="#1e3a8a" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <div class="logo">
+          <i class="fas fa-scale-balanced"></i>
+          <h1 id="appName">Nyaya-Uday</h1>
+        </div>
+        <div class="header-controls">
+          <div class="language-selector">
+            <select id="languageSelect" class="language-dropdown">
+              <option value="en">English</option>
+              <option value="hi">हिंदी</option>
+              <option value="mr">मराठी</option>
+            </select>
+          </div>
+          <div class="user-score">
+            <i class="fas fa-star"></i>
+            <span id="userScore">0</span> <span class="score-label">pts</span>
+          </div>
+        </div>
+      </div>
+      <p id="tagline" class="tagline">
+        Access to Justice Begins with Access to the Path
+      </p>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+      <div class="container">
+        <button class="nav-btn active" data-section="home">
+          <i class="fas fa-home"></i> <span class="nav-text">Home</span>
+        </button>
+        <button class="nav-btn" data-section="roadmap">
+          <i class="fas fa-road"></i> <span class="nav-text">Roadmap</span>
+        </button>
+        <button class="nav-btn" data-section="simulation">
+          <i class="fas fa-gavel"></i> <span class="nav-text">Simulation</span>
+        </button>
+        <button class="nav-btn" data-section="leaderboard">
+          <i class="fas fa-trophy"></i>
+          <span class="nav-text">Leaderboard</span>
+        </button>
+        <button class="nav-btn" data-section="profile">
+          <i class="fas fa-user"></i> <span class="nav-text">Profile</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Home Section -->
+      <section id="home" class="section active">
+        <div class="hero">
+          <h2 id="heroTitle">Discover Your Path to the Bench</h2>
+          <p id="heroSubtitle" class="subtitle">
+            Free, simple guidance for aspiring judges across India
+          </p>
+
+          <div class="stats">
+            <div class="stat-item">
+              <div class="stat-number">28</div>
+              <div id="statsStates" class="stat-label">States</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div id="statsFree" class="stat-label">Free</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">2G</div>
+              <div id="stats2G" class="stat-label">Works on 2G</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Onboarding Form -->
+        <div class="card">
+          <h3>
+            <i class="fas fa-map-signs"></i>
+            <span id="startJourney">Start Your Journey</span>
+          </h3>
+          <p id="roadmapDescription">
+            Get personalized judicial career roadmap in 30 seconds
+          </p>
+
+          <div class="form-group">
+            <label for="stateSelect">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="selectState">Select Your State</span>
+            </label>
+            <select id="stateSelect" class="form-control">
+              <option value="" id="chooseState">Choose State/UT</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="mh">Maharashtra</option>
+              <option value="wb">West Bengal</option>
+              <option value="br">Bihar</option>
+              <option value="mp">Madhya Pradesh</option>
+              <option value="tn">Tamil Nadu</option>
+              <option value="rj">Rajasthan</option>
+              <option value="ka">Karnataka</option>
+              <option value="gj">Gujarat</option>
+              <option value="ap">Andhra Pradesh</option>
+              <option value="od">Odisha</option>
+              <option value="ts">Telangana</option>
+              <option value="kl">Kerala</option>
+              <option value="jh">Jharkhand</option>
+              <option value="as">Assam</option>
+              <option value="pb">Punjab</option>
+              <option value="ct">Chhattisgarh</option>
+              <option value="hr">Haryana</option>
+              <option value="uk">Uttarakhand</option>
+              <option value="hp">Himachal Pradesh</option>
+              <option value="dl">Delhi</option>
+              <option value="jk">Jammu & Kashmir</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="educationSelect">
+              <i class="fas fa-graduation-cap"></i>
+              <span id="selectEducation">Current Education</span>
+            </label>
+            <select id="educationSelect" class="form-control">
+              <option value="" id="chooseEducation">
+                Select Education Level
+              </option>
+              <option value="10">Class 10th</option>
+              <option value="12">Class 12th</option>
+              <option value="grad">Graduate (Any Degree)</option>
+              <option value="llb">LLB Student</option>
+              <option value="lawyer">Practicing Lawyer</option>
+            </select>
+          </div>
+
+          <button id="generateBtn" class="btn btn-primary btn-block">
+            <i class="fas fa-rocket"></i>
+            <span id="generateRoadmap">Generate My Roadmap</span>
+          </button>
+
+          <div class="info-note">
+            <i class="fas fa-info-circle"></i>
+            <small id="dataNote"
+              >Data based on official BCI rules and state judicial service
+              notifications</small
+            >
+          </div>
+        </div>
+
+        <!-- Quick Features -->
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">⚖️</div>
+            <h4 id="feature1Title">State Roadmaps</h4>
+            <p id="feature1Desc">
+              Personalized path based on your state's rules
+            </p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🧠</div>
+            <h4 id="feature2Title">Judge Simulation</h4>
+            <p id="feature2Desc">Test your judicial thinking skills</p>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h4 id="feature3Title">Lightweight</h4>
+            <p id="feature3Desc">Works on basic smartphones</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap Section -->
+      <section id="roadmap" class="section" style="display: none">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-road"></i>
+            <span id="roadmapTitle">Your Judicial Career Roadmap</span>
+          </h2>
+          <button id="backToHome" class="btn btn-small">
+            <i class="fas fa-arrow-left"></i> <span id="backButton">Back</span>
+          </button>
+        </div>
+
+        <div id="roadmapContent">
+          <!-- Dynamic content loaded here -->
+          <div class="empty-state">
+            <i class="fas fa-map fa-3x"></i>
+            <h3 id="noRoadmapTitle">No Roadmap Generated</h3>
+            <p id="noRoadmapDesc">
+              Go to Home to generate your personalized judicial career path
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Simulation Section -->
+      <section id="simulation" class="section" style="display: none">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-gavel"></i>
+            <span id="simulationTitle">Junior Judge Simulation</span>
+          </h2>
+          <div class="score-display">
+            <span id="currentScore">0</span>
+            <span class="points-text">pts</span>
+          </div>
+        </div>
+
+        <div id="simulationContent">
+          <div class="card">
+            <h3 id="simulationSubtitle">Test Your Judicial Temperament</h3>
+            <p id="simulationDesc">
+              Solve real-case scenarios to see if you have what it takes to be a
+              judge.
+            </p>
+
+            <div class="simulation-info">
+              <div class="info-item">
+                <i class="fas fa-balance-scale"></i>
+                <span id="fairnessLogic">Focus on fairness & logic</span>
+              </div>
+              <div class="info-item">
+                <i class="fas fa-brain"></i>
+                <span id="noLegalKnowledge">No legal knowledge required</span>
+              </div>
+            </div>
+
+            <button id="startSimulationBtn" class="btn btn-primary btn-block">
+              <i class="fas fa-play"></i>
+              <span id="startCase">Start New Case</span>
+            </button>
+
+            <div id="caseContainer" style="display: none">
+              <!-- Case content loaded here -->
+            </div>
+          </div>
+
+          <div class="badges-card">
+            <h4>
+              <i class="fas fa-award"></i>
+              <span id="yourBadges">Your Badges</span>
+            </h4>
+            <div id="badgesContainer" class="badges-grid">
+              <!-- Badges loaded here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leaderboard Section -->
+      <section id="leaderboard" class="section" style="display: none">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-trophy"></i>
+            <span id="leaderboardTitle">Judicial Aptitude Leaderboard</span>
+          </h2>
+          <button id="refreshLeaderboard" class="btn btn-small">
+            <i class="fas fa-sync-alt"></i>
+            <span id="refreshText">Refresh</span>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="leaderboard-filters">
+            <select id="stateFilter" class="form-control">
+              <option value="all" id="allStates">All States</option>
+              <option value="up">Uttar Pradesh</option>
+              <option value="mh">Maharashtra</option>
+              <option value="wb">West Bengal</option>
+            </select>
+          </div>
+
+          <div id="leaderboardContent">
+            <div class="loading" id="loadingLeaderboard">
+              Loading leaderboard...
+            </div>
+          </div>
+
+          <div class="info-note">
+            <i class="fas fa-info-circle"></i>
+            <small id="leaderboardNote"
+              >Leaderboard updates in real-time. Scores based on simulation
+              performance.</small
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <section id="profile" class="section" style="display: none">
+        <div class="section-header">
+          <h2>
+            <i class="fas fa-user"></i>
+            <span id="profileTitle">Your Profile</span>
+          </h2>
+        </div>
+
+        <div class="card">
+          <div class="profile-header">
+            <div class="avatar">👨‍⚖️</div>
+            <div>
+              <h3 id="userName">Aspiring Judge</h3>
+              <p id="userLocation">Select your state to begin</p>
+            </div>
+          </div>
+
+          <div class="profile-stats">
+            <div class="stat-box">
+              <div class="stat-value" id="totalScoreDisplay">0</div>
+              <div id="totalScoreLabel" class="stat-label">Total Score</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="casesSolved">0</div>
+              <div id="casesSolvedLabel" class="stat-label">Cases Solved</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-value" id="badgeCount">0</div>
+              <div id="badgesLabel" class="stat-label">Badges</div>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button id="resetProgress" class="btn btn-secondary">
+              <i class="fas fa-redo"></i>
+              <span id="resetProgressText">Reset Progress</span>
+            </button>
+            <button id="saveProfile" class="btn btn-primary">
+              <i class="fas fa-save"></i>
+              <span id="saveProgressText">Save Progress</span>
+            </button>
+          </div>
+
+          <div class="progress-section">
+            <h4 id="journeyProgress">Your Journey Progress</h4>
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                id="progressFill"
+                style="width: 0%"
+              ></div>
+            </div>
+            <div class="progress-text">
+              <span id="progressText">0% Complete</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>
+            <i class="fas fa-cog"></i>
+            <span id="appSettings">App Settings</span>
+          </h4>
+          <div class="settings">
+            <div class="setting-item">
+              <span id="dataSavingLabel">Data Saving Mode</span>
+              <label class="switch">
+                <input type="checkbox" id="dataSaving" checked />
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div class="setting-item">
+              <span id="offlineModeLabel">Offline Mode</span>
+              <label class="switch">
+                <input type="checkbox" id="offlineMode" />
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+          <div class="info-note">
+            <i class="fas fa-database"></i>
+            <small id="storageNote"
+              >All data stored locally. Works without internet.</small
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p id="copyright">
+          Nyaya-Uday © 2026 • Judicial Career Discovery Platform
+        </p>
+        <p id="taglineFooter" class="footer-small">
+          "Access to Justice Begins with Access to the Path"
+        </p>
+        <p id="builtForIndia" class="footer-small">
+          Built for India • Works on 2G networks • Free Forever
+        </p>
+      </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Main App Script -->
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
