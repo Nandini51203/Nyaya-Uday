@@ -9,12 +9,16 @@ const STATIC_FILES = [
   "./manifest.json",
   "./css/style.css",
   "./js/app.js",
+  "./js/auth.js",
+  "./js/assistant.js",
+  "./js/language.js",
   "./icons/icon-72.png",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/favicon.ico",
   "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css",
   "https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js",
+  "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js",
   "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js",
 ];
 

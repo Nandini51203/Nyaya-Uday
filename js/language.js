@@ -1,7 +1,22 @@
-// languages.js - Multilingual support for Nyaya-Uday
+// language.js - Multilingual support for Nyaya-Uday
 
 const LanguageData = {
   en: {
+    // Login Screen
+    loginWelcome: "Welcome to Nyaya-Uday",
+    loginSubtitle: "Your judicial career discovery platform",
+    continueGuest: "Continue as Guest",
+    signIn: "Sign In",
+    createAccount: "Create Account",
+    forgotPassword: "Forgot Password?",
+    loginInfo:
+      "Continue as guest to explore all features. Your progress will be saved locally.",
+    loginFeaturesTitle: "What you'll get:",
+    featureRoadmaps: "Personalized Judicial Roadmaps",
+    featureSimulation: "Judge Simulation Exercises",
+    featureScoring: "Aptitude Scoring & Badges",
+    featureExams: "Exam Preparation Guidance",
+
     // App Info
     appName: "Nyaya-Uday",
     tagline: "Access to Justice Begins with Access to the Path",
@@ -32,8 +47,8 @@ const LanguageData = {
     feature1Desc: "Personalized path based on your state's rules",
     feature2Title: "Judge Simulation",
     feature2Desc: "Test your judicial thinking skills",
-    feature3Title: "Lightweight",
-    feature3Desc: "Works on basic smartphones",
+    feature3Title: "AI Assistant",
+    feature3Desc: "Get instant answers to your queries",
 
     // Stats
     statsStates: "States",
@@ -48,6 +63,24 @@ const LanguageData = {
     officialNote:
       "This is a simplified overview. Always verify with official state judicial service notifications.",
     trySimulation: "Try Judicial Simulation",
+    duration: "Duration",
+    optionalStep: "Optional step",
+    recommendedExams: "Recommended exams",
+
+    // Exams Section
+    examsTitle: "Recommended Exams",
+    clatExam: "CLAT (Common Law Admission Test)",
+    ailetExam: "AILET (All India Law Entrance Test)",
+    stateCet: "State Law CET",
+    upPcsj: "UP PCS-J (Judicial Services)",
+    mhJudicial: "Maharashtra Judicial Services",
+    biharJudicial: "Bihar Judicial Services",
+    examPattern: "Exam Pattern",
+    eligibility: "Eligibility",
+    ageLimit: "Age Limit",
+    attempts: "Attempts",
+    frequency: "Frequency",
+    officialWebsite: "Official Website",
 
     // Simulation Page
     simulationTitle: "Junior Judge Simulation",
@@ -116,51 +149,64 @@ const LanguageData = {
     offline: "Working offline. Data saved locally.",
     dataSavingEnabled: "Data saving enabled",
     dataSavingDisabled: "Data saving disabled",
+    installPrompt: "Install Nyaya-Uday app for offline access?",
+
+    // Auth Messages
+    guestWelcome: "Welcome Guest! Your progress will be saved locally.",
+    enterCredentials: "Please enter email and password",
+    invalidEmail: "Please enter a valid email address",
+    loginSuccess: "Login successful!",
+    noAccount: "No account found. Please register.",
+    fillAllFields: "Please fill all fields",
+    acceptTerms: "Please accept terms and conditions",
+    passwordLength: "Password must be at least 6 characters",
+    passwordMismatch: "Passwords do not match",
+    userExists: "User already exists. Please login.",
+    registrationSuccess: "Registration successful!",
+    resetEmailSent: "Password reset email sent (simulated)",
+    confirmLogout: "Are you sure you want to logout?",
+
+    // Assistant Messages
+    assistantWelcome:
+      "Hello! I'm Nyaya Assistant. How can I help you with your judicial career journey today?",
+    judgePathGeneral:
+      "The path to becoming a judge typically involves:\n1. Completing LLB degree\n2. Bar Council registration\n3. Judicial service exam preparation\n4. Clearing state judicial exams\n5. Judicial training\n\nCan you tell me your current education level?",
+    clatInfo:
+      "CLAT (Common Law Admission Test):\n• National level entrance for NLUs\n• Eligibility: Class 12 with 45% (40% for SC/ST)\n• No age limit for UG programs\n• Pattern: 150 MCQs\n• Subjects: English, GK, Maths, Legal Aptitude, Reasoning\n• Website: consortiumofnlus.ac.in",
+    ailetInfo:
+      "AILET (All India Law Entrance Test):\n• Entrance for NLU Delhi\n• Eligibility: Class 12 with 50% (45% for SC/ST)\n• Age: Below 20 years for UG\n• Pattern: 150 MCQs\n• Website: nludelhi.ac.in",
+    examInfoGeneral:
+      "Major Judicial Exams in India:\n1. State Judicial Services Exams\n2. CLAT for law admissions\n3. AILET for NLU Delhi\n4. State CET for law colleges\n\nWhich specific exam information do you need?",
+    roadmapHelp:
+      "To get your personalized judicial career roadmap:\n1. Go to Home section\n2. Select your state and education level\n3. Click 'Generate My Roadmap'\n4. View detailed step-by-step plan with exam suggestions\n\nYou can also ask me specific questions about your career path.",
+    assistantThanks:
+      "You're welcome! Feel free to ask if you have more questions about your judicial career journey.",
+    assistantHelp:
+      "I can help you with:\n• How to become a judge after 12th/graduation\n• State-wise exam information\n• Age limits and eligibility\n• Preparation tips and books\n• Salary and career progression\n• LLB admission guidance\n• Interview preparation\n• Exam pattern and syllabus\n• Reservation policies\n• Application process\n\nJust ask me anything!",
+    assistantDefault:
+      "I'm not sure I understand. Could you please rephrase your question? Here are some things I can help with:\n• 'How to become a judge after 12th?'\n• 'Which exam is needed in Maharashtra?'\n• 'What is the age limit for judicial exams?'\n• 'Tell me about CLAT exam'\n• 'What is the salary of a judge?'\n• 'How to prepare for judicial exams?'\n• 'Which books should I read?'",
 
     // Footer
     copyright: "Nyaya-Uday © 2026 • Judicial Career Discovery Platform",
     builtForIndia: "Built for India • Works on 2G networks • Free Forever",
-
-    // Case Data
-    rentDisputeTitle: "The Rent Dispute",
-    rentDisputeFacts:
-      "Landlord Mr. Sharma claims tenant Mr. Verma hasn't paid rent for 3 months. Tenant says the roof was leaking throughout monsoon and repair requests were ignored.",
-    rentDisputeEvidence1: "WhatsApp messages showing repair requests",
-    rentDisputeEvidence2: "Photos of water leakage damage",
-    rentDisputeEvidence3: "No written rent agreement",
-    rentDisputeEvidence4: "One neighbor as witness",
-    optionA:
-      "Order tenant to pay 2 months' rent (deducting 1 month for repairs)",
-    optionB: "Dismiss case due to lack of written agreement",
-    optionC: "Side with landlord because he seems trustworthy",
-    optionD: "Order mediation between parties before deciding",
-    feedbackA:
-      "Excellent! You balanced both parties' interests and considered the evidence properly.",
-    feedbackB:
-      "While procedurally correct, this ignores the practical realities of the situation.",
-    feedbackC:
-      "Judges must avoid emotional biases and decide based on evidence, not appearances.",
-    feedbackD:
-      "Good approach for dispute resolution, but sometimes immediate decisions are needed.",
-
-    stolenBicycleTitle: "The Stolen Bicycle",
-    stolenBicycleFacts:
-      "Rohan claims Sohan took his bicycle without permission. Sohan says Rohan promised to lend it for a week. No witnesses. Value: ₹5,000.",
-    stolenBicycleEvidence1: "Both are college friends",
-    stolenBicycleEvidence2: "No written lending agreement",
-    stolenBicycleEvidence3: "Bicycle was returned after 10 days",
-    stolenBicycleEvidence4: "Minor scratches on bicycle",
-
-    partnershipTitle: "The Business Partnership",
-    partnershipFacts:
-      "Two friends started a small shop. Partner A invested ₹50,000, Partner B managed daily operations. After 6 months, they disagree on profit sharing.",
-    partnershipEvidence1: "Bank transfer of ₹50,000",
-    partnershipEvidence2: "No written partnership agreement",
-    partnershipEvidence3: "Mixed accounts for personal and business",
-    partnershipEvidence4: "Sales records maintained by Partner B",
   },
 
   hi: {
+    // Login Screen
+    loginWelcome: "न्याय-उदय में आपका स्वागत है",
+    loginSubtitle: "आपका न्यायिक करियर डिस्कवरी प्लेटफॉर्म",
+    continueGuest: "अतिथि के रूप में जारी रखें",
+    signIn: "साइन इन करें",
+    createAccount: "खाता बनाएं",
+    forgotPassword: "पासवर्ड भूल गए?",
+    loginInfo:
+      "सभी सुविधाओं का अन्वेषण करने के लिए अतिथि के रूप में जारी रखें। आपकी प्रगति स्थानीय रूप से सहेजी जाएगी।",
+    loginFeaturesTitle: "आपको क्या मिलेगा:",
+    featureRoadmaps: "व्यक्तिगत न्यायिक रोडमैप",
+    featureSimulation: "न्यायाधीश सिमुलेशन अभ्यास",
+    featureScoring: "योग्यता स्कोरिंग और बैज",
+    featureExams: "परीक्षा तैयारी मार्गदर्शन",
+
     // App Info
     appName: "न्याय-उदय",
     tagline: "न्याय तक पहुँच, रास्ते तक पहुँच से शुरू होती है",
@@ -178,7 +224,7 @@ const LanguageData = {
       "भारत भर में न्यायाधीश बनने के इच्छुक लोगों के लिए मुफ्त, सरल मार्गदर्शन",
     startJourney: "अपनी यात्रा शुरू करें",
     roadmapDescription:
-      "30 सेकंड में अपना व्यक्तिगत न्यायिक करियर रोडमैप प्राप्त करें",
+      "30 सेकंद में अपना व्यक्तिगत न्यायिक करियर रोडमैप प्राप्त करें",
     selectState: "अपना राज्य चुनें",
     selectEducation: "वर्तमान शिक्षा",
     chooseState: "राज्य/केंद्रशासित प्रदेश चुनें",
@@ -192,8 +238,8 @@ const LanguageData = {
     feature1Desc: "आपके राज्य के नियमों पर आधारित व्यक्तिगत रास्ता",
     feature2Title: "न्यायाधीश सिमुलेशन",
     feature2Desc: "अपने न्यायिक सोच कौशल का परीक्षण करें",
-    feature3Title: "हल्का एप",
-    feature3Desc: "बेसिक स्मार्टफोन पर काम करता है",
+    feature3Title: "AI असिस्टेंट",
+    feature3Desc: "अपने सवालों के तुरंत जवाब पाएं",
 
     // Stats
     statsStates: "राज्य",
@@ -208,6 +254,24 @@ const LanguageData = {
     officialNote:
       "यह एक सरलीकृत अवलोकन है। हमेशा आधिकारिक राज्य न्यायिक सेवा अधिसूचनाओं से सत्यापित करें।",
     trySimulation: "न्यायिक सिमुलेशन आजमाएं",
+    duration: "अवधि",
+    optionalStep: "वैकल्पिक कदम",
+    recommendedExams: "सुझाई गई परीक्षाएं",
+
+    // Exams Section
+    examsTitle: "सुझाई गई परीक्षाएं",
+    clatExam: "CLAT (कॉमन लॉ एडमिशन टेस्ट)",
+    ailetExam: "AILET (ऑल इंडिया लॉ एंट्रेंस टेस्ट)",
+    stateCet: "राज्य लॉ CET",
+    upPcsj: "UP PCS-J (न्यायिक सेवाएं)",
+    mhJudicial: "महाराष्ट्र न्यायिक सेवाएं",
+    biharJudicial: "बिहार न्यायिक सेवाएं",
+    examPattern: "परीक्षा पैटर्न",
+    eligibility: "पात्रता",
+    ageLimit: "आयु सीमा",
+    attempts: "प्रयास",
+    frequency: "आवृत्ति",
+    officialWebsite: "आधिकारिक वेबसाइट",
 
     // Simulation Page
     simulationTitle: "जूनियर जज सिमुलेशन",
@@ -276,6 +340,32 @@ const LanguageData = {
     offline: "ऑफलाइन काम कर रहे हैं। डेटा स्थानीय रूप से सहेजा गया।",
     dataSavingEnabled: "डेटा सेविंग सक्षम किया गया",
     dataSavingDisabled: "डेटा सेविंग अक्षम किया गया",
+    installPrompt: "ऑफलाइन एक्सेस के लिए न्याय-उदय ऐप इंस्टॉल करें?",
+
+    // Auth Messages
+    guestWelcome: "अतिथि का स्वागत है! आपकी प्रगति स्थानीय रूप से सहेजी जाएगी।",
+    enterCredentials: "कृपया ईमेल और पासवर्ड दर्ज करें",
+    invalidEmail: "कृपया एक मान्य ईमेल पता दर्ज करें",
+    loginSuccess: "लॉगिन सफल!",
+    noAccount: "कोई खाता नहीं मिला। कृपया पंजीकरण करें।",
+    fillAllFields: "कृपया सभी फ़ील्ड भरें",
+    acceptTerms: "कृपया नियम और शर्तें स्वीकार करें",
+    passwordLength: "पासवर्ड कम से कम 6 वर्णों का होना चाहिए",
+    passwordMismatch: "पासवर्ड मेल नहीं खाते",
+    userExists: "उपयोगकर्ता पहले से मौजूद है। कृपया लॉगिन करें।",
+    registrationSuccess: "पंजीकरण सफल!",
+    resetEmailSent: "पासवर्ड रीसेट ईमेल भेजा गया (सिम्युलेटेड)",
+    confirmLogout: "क्या आप लॉगआउट करना चाहते हैं?",
+
+    // Assistant Messages
+    assistantWelcome:
+      "नमस्ते! मैं न्याय असिस्टेंट हूं, आपका न्यायिक करियर मार्गदर्शक। आज मैं आपकी कैसे मदद कर सकता हूं?",
+    judgePathGeneral:
+      "न्यायाधीश बनने का रास्ता:\n1. LLB डिग्री पूरी करें\n2. बार काउंसिल पंजीकरण\n3. न्यायिक सेवा परीक्षा की तैयारी\n4. राज्य न्यायिक परीक्षा पास करें\n5. न्यायिक प्रशिक्षण\n\nकृपया अपनी वर्तमान शिक्षा बताएं?",
+    clatInfo:
+      "CLAT (कॉमन लॉ एडमिशन टेस्ट):\n• NLU में प्रवेश के लिए राष्ट्रीय परीक्षा\n• पात्रता: कक्षा 12, 45% अंक (SC/ST के लिए 40%)\n• आयु सीमा: नहीं\n• पैटर्न: 150 MCQs\n• विषय: अंग्रेजी, सामान्य ज्ञान, गणित, कानूनी योग्यता\n• वेबसाइट: consortiumofnlus.ac.in",
+    assistantDefault:
+      "मुझे समझ नहीं आया। कृपया अपना प्रश्न दोबारा पूछें। मैं इन विषयों में मदद कर सकता हूं:\n• '12वीं के बाद न्यायाधीश कैसे बनें?'\n• 'महाराष्ट्र में कौन सी परीक्षा चाहिए?'\n• 'न्यायिक परीक्षा की आयु सीमा क्या है?'\n• 'CLAT परीक्षा के बारे में बताएं'\n• 'न्यायाधीश का वेतन कितना है?'\n• 'न्यायिक परीक्षा की तैयारी कैसे करें?'\n• 'कौन सी किताबें पढ़नी चाहिए?'",
 
     // Footer
     copyright: "न्याय-उदय © 2026 • न्यायिक करियर डिस्कवरी प्लेटफॉर्म",
@@ -284,6 +374,21 @@ const LanguageData = {
   },
 
   mr: {
+    // Login Screen
+    loginWelcome: "न्याय-उदय मध्ये आपले स्वागत आहे",
+    loginSubtitle: "तुमचे न्यायिक करिअर डिस्कव्हरी प्लॅटफॉर्म",
+    continueGuest: "पाहुणा म्हणून सुरू ठेवा",
+    signIn: "साइन इन करा",
+    createAccount: "खाते तयार करा",
+    forgotPassword: "पासवर्ड विसरलात?",
+    loginInfo:
+      "सर्व वैशिष्ट्ये एक्सप्लोर करण्यासाठी पाहुणा म्हणून सुरू ठेवा. तुमची प्रगती स्थानिकरित्या जतन केली जाईल.",
+    loginFeaturesTitle: "तुम्हाला काय मिळेल:",
+    featureRoadmaps: "वैयक्तिक न्यायिक रोडमॅप",
+    featureSimulation: "न्यायाधीश सिम्युलेशन व्यायाम",
+    featureScoring: "योग्यतेचे स्कोरिंग आणि बॅज",
+    featureExams: "परीक्षा तयारी मार्गदर्शन",
+
     // App Info
     appName: "न्याय-उदय",
     tagline: "न्यायाप्रती मार्ग, मार्गाप्रती मार्गाने सुरू होते",
@@ -314,8 +419,8 @@ const LanguageData = {
     feature1Desc: "तुमच्या राज्याच्या नियमांवर आधारित वैयक्तिक मार्ग",
     feature2Title: "न्यायाधीश सिम्युलेशन",
     feature2Desc: "तुमच्या न्यायिक विचार कौशल्याची चाचणी घ्या",
-    feature3Title: "हलका ऍप",
-    feature3Desc: "बेसिक स्मार्टफोनवर कार्य करते",
+    feature3Title: "AI सहायक",
+    feature3Desc: "तुमच्या प्रश्नांची त्वरित उत्तरे मिळवा",
 
     // Stats
     statsStates: "राज्ये",
@@ -330,6 +435,24 @@ const LanguageData = {
     officialNote:
       "हे एक सरलीकृत आढावा आहे. नेहमी अधिकृत राज्य न्यायिक सेवा अधिसूचना तपासा.",
     trySimulation: "न्यायिक सिम्युलेशन वापरून पहा",
+    duration: "कालावधी",
+    optionalStep: "पर्यायी पायरी",
+    recommendedExams: "शिफारस केलेल्या परीक्षा",
+
+    // Exams Section
+    examsTitle: "शिफारस केलेल्या परीक्षा",
+    clatExam: "CLAT (कॉमन लॉ अॅडमिशन टेस्ट)",
+    ailetExam: "AILET (ऑल इंडिया लॉ एंट्रन्स टेस्ट)",
+    stateCet: "राज्य लॉ CET",
+    upPcsj: "UP PCS-J (न्यायिक सेवा)",
+    mhJudicial: "महाराष्ट्र न्यायिक सेवा",
+    biharJudicial: "बिहार न्यायिक सेवा",
+    examPattern: "परीक्षा पॅटर्न",
+    eligibility: "पात्रता",
+    ageLimit: "वय मर्यादा",
+    attempts: "प्रयत्न",
+    frequency: "वारंवारता",
+    officialWebsite: "अधिकृत संकेतस्थळ",
 
     // Simulation Page
     simulationTitle: "कनिष्ठ न्यायाधीश सिम्युलेशन",
@@ -398,6 +521,29 @@ const LanguageData = {
     offline: "ऑफलाइन कार्य करत आहे. डेटा स्थानिकरित्या जतन केला.",
     dataSavingEnabled: "डेटा सेव्हिंग सक्षम केले",
     dataSavingDisabled: "डेटा सेव्हिंग अक्षम केले",
+    installPrompt: "ऑफलाइन ॲक्सेससाठी न्याय-उदय ॲप इंस्टॉल करा?",
+
+    // Auth Messages
+    guestWelcome:
+      "पाहुण्यांचे स्वागत आहे! तुमची प्रगती स्थानिकरित्या जतन केली जाईल.",
+    enterCredentials: "कृपया ईमेल आणि पासवर्ड प्रविष्ट करा",
+    invalidEmail: "कृपया वैध ईमेल पत्ता प्रविष्ट करा",
+    loginSuccess: "लॉगिन यशस्वी!",
+    noAccount: "कोणतेही खाते सापडले नाही. कृपया नोंदणी करा.",
+    fillAllFields: "कृपया सर्व फील्ड भरा",
+    acceptTerms: "कृपया नियम आणि अटी स्वीकारा",
+    passwordLength: "पासवर्ड किमान ६ वर्णांचा असणे आवश्यक आहे",
+    passwordMismatch: "पासवर्ड जुळत नाहीत",
+    userExists: "वापरकर्ता आधीपासून अस्तित्वात आहे. कृपया लॉगिन करा.",
+    registrationSuccess: "नोंदणी यशस्वी!",
+    resetEmailSent: "पासवर्ड रीसेट ईमेल पाठवला (सिम्युलेटेड)",
+    confirmLogout: "तुम्हाला लॉगआउट करायचे आहे का?",
+
+    // Assistant Messages
+    assistantWelcome:
+      "नमस्कार! मी न्याय सहायक आहे, तुमचा न्यायिक करिअर मार्गदर्शक. आज मी तुमची कशी मदत करू शकतो?",
+    assistantDefault:
+      "मला समजले नाही. कृपया तुमचा प्रश्न पुन्हा विचारा. मी या विषयांमध्ये मदत करू शकतो:\n• '12वीनंतर न्यायाधीश कसे व्हावे?'\n• 'महाराष्ट्रात कोणती परीक्षा हवी?'\n• 'न्यायिक परीक्षेची वय मर्यादा काय आहे?'\n• 'CLAT परीक्षेबद्दल सांगा'\n• 'न्यायाधीशाचा पगार किती आहे?'\n• 'न्यायिक परीक्षेची तयारी कशी करावी?'\n• 'कोणती पुस्तके वाचावीत?'",
 
     // Footer
     copyright: "न्याय-उदय © 2026 • न्यायिक करिअर डिस्कव्हरी प्लॅटफॉर्म",

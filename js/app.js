@@ -1,6 +1,9 @@
 // Nyaya-Uday - Judicial Career Discovery App
 // Main Application Script with Multilingual Support
 
+// Import assistant
+import { NyayaAssistant } from "./assistant.js";
+
 // Import language functions
 import {
   getText,
@@ -252,7 +255,7 @@ const CaseDatabase = {
 };
 
 // ============================================
-// Roadmap Database (Multilingual)
+// Roadmap Database with Exam Suggestions (Multilingual)
 // ============================================
 const RoadmapDatabase = {
   up: {
@@ -261,17 +264,19 @@ const RoadmapDatabase = {
         {
           step: "Complete Class 12",
           icon: "📚",
-          details: "Focus on scoring well",
+          details: "Focus on scoring well in Arts/Commerce stream",
+          isCurrent: true,
         },
         {
           step: "Prepare for CLAT/AILET",
           icon: "📝",
-          details: "National law entrance exams",
+          details: "National law entrance exams for 5-year LLB",
+          exams: ["CLAT", "AILET"],
         },
         {
           step: "Enroll in 5-year LLB",
           icon: "⚖️",
-          details: "Integrated law program",
+          details: "Integrated law program at NLU or recognized university",
         },
         {
           step: "Register with Bar Council",
@@ -281,34 +286,37 @@ const RoadmapDatabase = {
         {
           step: "Prepare for UP PCS-J",
           icon: "🎯",
-          details: "Uttar Pradesh Judicial Services",
+          details: "Uttar Pradesh Judicial Services Examination",
         },
         {
           step: "Age: 22-35 years",
           icon: "🎂",
-          details: "Relaxation for reserved categories",
+          details: "Relaxation for SC/ST/OBC categories",
         },
         {
           step: "Judicial Training",
           icon: "🏫",
-          details: "1 year at Judicial Academy",
+          details: "1 year at UP Judicial Academy",
         },
       ],
       hi: [
         {
           step: "कक्षा 12 पूरी करें",
           icon: "📚",
-          details: "अच्छे अंक लाने पर ध्यान दें",
+          details: "कला/वाणिज्य स्ट्रीम में अच्छे अंक लाने पर ध्यान दें",
+          isCurrent: true,
         },
         {
           step: "CLAT/AILET की तैयारी करें",
           icon: "📝",
-          details: "राष्ट्रीय कानून प्रवेश परीक्षाएं",
+          details: "5-वर्षीय LLB के लिए राष्ट्रीय कानून प्रवेश परीक्षाएं",
+          exams: ["CLAT", "AILET"],
         },
         {
           step: "5-वर्षीय LLB में दाखिला लें",
           icon: "⚖️",
-          details: "एकीकृत कानून कार्यक्रम",
+          details:
+            "NLU या मान्यता प्राप्त विश्वविद्यालय में एकीकृत कानून कार्यक्रम",
         },
         {
           step: "बार काउंसिल में पंजीकरण करें",
@@ -318,34 +326,38 @@ const RoadmapDatabase = {
         {
           step: "UP PCS-J की तैयारी करें",
           icon: "🎯",
-          details: "उत्तर प्रदेश न्यायिक सेवाएं",
+          details: "उत्तर प्रदेश न्यायिक सेवा परीक्षा",
         },
         {
           step: "आयु: 22-35 वर्ष",
           icon: "🎂",
-          details: "आरक्षित श्रेणियों के लिए छूट",
+          details: "एससी/एसटी/ओबीसी श्रेणियों के लिए छूट",
         },
         {
           step: "न्यायिक प्रशिक्षण",
           icon: "🏫",
-          details: "न्यायिक अकादमी में 1 वर्ष",
+          details: "यूपी न्यायिक अकादमी में 1 वर्ष",
         },
       ],
       mr: [
         {
           step: "इयत्ता 12 पूर्ण करा",
           icon: "📚",
-          details: "चांगले गुण मिळवण्यावर लक्ष केंद्रित करा",
+          details:
+            "कला/वाणिज्य प्रवाहात चांगले गुण मिळवण्यावर लक्ष केंद्रित करा",
+          isCurrent: true,
         },
         {
           step: "CLAT/AILET साठी तयारी करा",
           icon: "📝",
-          details: "राष्ट्रीय कायदा प्रवेश परीक्षा",
+          details: "5-वर्षाच्या LLB साठी राष्ट्रीय कायदा प्रवेश परीक्षा",
+          exams: ["CLAT", "AILET"],
         },
         {
           step: "5-वर्षाच्या LLB मध्ये प्रवेश घ्या",
           icon: "⚖️",
-          details: "एकीकृत कायदा कार्यक्रम",
+          details:
+            "NLU किंवा मान्यताप्राप्त विद्यापीठात एकात्मिक कायदा कार्यक्रम",
         },
         {
           step: "बार कौन्सिलमध्ये नोंदणी करा",
@@ -355,17 +367,17 @@ const RoadmapDatabase = {
         {
           step: "UP PCS-J साठी तयारी करा",
           icon: "🎯",
-          details: "उत्तर प्रदेश न्यायिक सेवा",
+          details: "उत्तर प्रदेश न्यायिक सेवा परीक्षा",
         },
         {
           step: "वय: 22-35 वर्षे",
           icon: "🎂",
-          details: "आरक्षित श्रेण्यांसाठी सवलत",
+          details: "SC/ST/OBC वर्गांसाठी सवलत",
         },
         {
           step: "न्यायिक प्रशिक्षण",
           icon: "🏫",
-          details: "न्यायिक अकादमीत 1 वर्ष",
+          details: "UP न्यायिक अकादमीत 1 वर्ष",
         },
       ],
     },
@@ -375,26 +387,31 @@ const RoadmapDatabase = {
           step: "Apply for 5-year LLB",
           icon: "📝",
           details: "Through CLAT or state CET",
+          exams: ["CLAT", "AILET", "State CET"],
+          isCurrent: true,
         },
         {
           step: "Complete BA/BBA/BCom LLB",
           icon: "⚖️",
           details: "5-year integrated course",
+          timeline: "5 years",
         },
         {
           step: "Bar Council Registration",
           icon: "📋",
-          details: "Mandatory for practice",
+          details: "Mandatory for legal practice",
         },
         {
           step: "UP PCS-J Examination",
           icon: "🎯",
           details: "Prelims, Mains, Interview",
+          exams: ["UP PCS-J"],
         },
         {
           step: "Optional: Practice Law",
           icon: "💼",
-          details: "Gain court experience",
+          details: "Gain 2-3 years court experience",
+          isOptional: true,
         },
         {
           step: "Judicial Appointment",
@@ -407,11 +424,14 @@ const RoadmapDatabase = {
           step: "5-वर्षीय LLB के लिए आवेदन करें",
           icon: "📝",
           details: "CLAT या राज्य CET के माध्यम से",
+          exams: ["CLAT", "AILET", "राज्य CET"],
+          isCurrent: true,
         },
         {
           step: "BA/BBA/BCom LLB पूरी करें",
           icon: "⚖️",
           details: "5-वर्षीय एकीकृत पाठ्यक्रम",
+          timeline: "5 वर्ष",
         },
         {
           step: "बार काउंसिल पंजीकरण",
@@ -422,11 +442,13 @@ const RoadmapDatabase = {
           step: "UP PCS-J परीक्षा",
           icon: "🎯",
           details: "प्रारंभिक, मुख्य, साक्षात्कार",
+          exams: ["UP PCS-J"],
         },
         {
           step: "वैकल्पिक: कानून का अभ्यास",
           icon: "💼",
-          details: "अदालत का अनुभव प्राप्त करें",
+          details: "2-3 वर्ष का अदालत अनुभव प्राप्त करें",
+          isOptional: true,
         },
         {
           step: "न्यायिक नियुक्ति",
@@ -439,11 +461,14 @@ const RoadmapDatabase = {
           step: "5-वर्षाच्या LLB साठी अर्ज करा",
           icon: "📝",
           details: "CLAT किंवा राज्य CET मार्गे",
+          exams: ["CLAT", "AILET", "राज्य CET"],
+          isCurrent: true,
         },
         {
           step: "BA/BBA/BCom LLB पूर्ण करा",
           icon: "⚖️",
           details: "5-वर्षाचा एकात्मिक अभ्यासक्रम",
+          timeline: "5 वर्षे",
         },
         {
           step: "बार कौन्सिल नोंदणी",
@@ -454,11 +479,13 @@ const RoadmapDatabase = {
           step: "UP PCS-J परीक्षा",
           icon: "🎯",
           details: "प्राथमिक, मुख्य, मुलाखत",
+          exams: ["UP PCS-J"],
         },
         {
           step: "पर्यायी: कायद्याचा सराव",
           icon: "💼",
-          details: "कोर्ट अनुभव मिळवा",
+          details: "2-3 वर्षांचा कोर्ट अनुभव मिळवा",
+          isOptional: true,
         },
         {
           step: "न्यायिक नियुक्ती",
@@ -472,78 +499,320 @@ const RoadmapDatabase = {
         {
           step: "Enroll in 3-year LLB",
           icon: "⚖️",
-          details: "After graduation",
+          details: "After graduation from any stream",
+          exams: ["DU LLB", "PU LLB", "State CET"],
+          isCurrent: true,
         },
-        { step: "Complete LLB degree", icon: "🎓", details: "3-year program" },
+        {
+          step: "Complete LLB degree",
+          icon: "🎓",
+          details: "3-year program from recognized university",
+          timeline: "3 years",
+        },
         {
           step: "Bar Council Registration",
           icon: "📋",
-          details: "After LLB completion",
+          details: "After LLB completion (All India Bar Exam)",
         },
         {
           step: "Prepare for UP PCS-J",
           icon: "📚",
-          details: "State judicial exam",
+          details: "Focus on UP specific laws and procedures",
+          exams: ["UP PCS-J"],
         },
-        { step: "Appear for Exam", icon: "🎯", details: "When eligible" },
-        { step: "Judicial Training", icon: "🏫", details: "After selection" },
+        {
+          step: "Appear for Exam",
+          icon: "🎯",
+          details: "When eligible (min. age 22)",
+          timeline: "Annual exam",
+        },
+        {
+          step: "Judicial Training",
+          icon: "🏫",
+          details: "After selection at UP Judicial Academy",
+        },
       ],
       hi: [
         {
           step: "3-वर्षीय LLB में दाखिला लें",
           icon: "⚖️",
-          details: "स्नातक के बाद",
+          details: "किसी भी स्ट्रीम से स्नातक के बाद",
+          exams: ["DU LLB", "PU LLB", "राज्य CET"],
+          isCurrent: true,
         },
         {
           step: "LLB डिग्री पूरी करें",
           icon: "🎓",
-          details: "3-वर्षीय कार्यक्रम",
+          details: "मान्यता प्राप्त विश्वविद्यालय से 3-वर्षीय कार्यक्रम",
+          timeline: "3 वर्ष",
         },
         {
           step: "बार काउंसिल पंजीकरण",
           icon: "📋",
-          details: "LLB पूरा होने के बाद",
+          details: "LLB पूरा होने के बाद (ऑल इंडिया बार परीक्षा)",
         },
         {
           step: "UP PCS-J की तैयारी करें",
           icon: "📚",
-          details: "राज्य न्यायिक परीक्षा",
+          details: "यूपी विशिष्ट कानूनों और प्रक्रियाओं पर ध्यान दें",
+          exams: ["UP PCS-J"],
         },
         {
           step: "परीक्षा में उपस्थित हों",
           icon: "🎯",
-          details: "योग्य होने पर",
+          details: "योग्य होने पर (न्यूनतम आयु 22 वर्ष)",
+          timeline: "वार्षिक परीक्षा",
         },
-        { step: "न्यायिक प्रशिक्षण", icon: "🏫", details: "चयन के बाद" },
+        {
+          step: "न्यायिक प्रशिक्षण",
+          icon: "🏫",
+          details: "चयन के बाद यूपी न्यायिक अकादमी में",
+        },
       ],
       mr: [
         {
           step: "3-वर्षाच्या LLB मध्ये प्रवेश घ्या",
           icon: "⚖️",
-          details: "पदवीनंतर",
+          details: "कोणत्याही प्रवाहातून पदवीनंतर",
+          exams: ["DU LLB", "PU LLB", "राज्य CET"],
+          isCurrent: true,
         },
         {
           step: "LLB पदवी पूर्ण करा",
           icon: "🎓",
-          details: "3-वर्षाचा कार्यक्रम",
+          details: "मान्यताप्राप्त विद्यापीठातून 3-वर्षाचा कार्यक्रम",
+          timeline: "3 वर्षे",
         },
         {
           step: "बार कौन्सिल नोंदणी",
           icon: "📋",
-          details: "LLB पूर्ण झाल्यानंतर",
+          details: "LLB पूर्ण झाल्यानंतर (ऑल इंडिया बार परीक्षा)",
         },
         {
           step: "UP PCS-J साठी तयारी करा",
           icon: "📚",
-          details: "राज्य न्यायिक परीक्षा",
+          details: "UP विशिष्ट कायदे आणि प्रक्रियांवर लक्ष केंद्रित करा",
+          exams: ["UP PCS-J"],
         },
         {
           step: "परीक्षेसाठी उपस्थित राहा",
           icon: "🎯",
-          details: "पात्र झाल्यावर",
+          details: "पात्र झाल्यावर (किमान वय 22 वर्षे)",
+          timeline: "वार्षिक परीक्षा",
         },
-        { step: "न्यायिक प्रशिक्षण", icon: "🏫", details: "निवडीनंतर" },
+        {
+          step: "न्यायिक प्रशिक्षण",
+          icon: "🏫",
+          details: "निवडीनंतर UP न्यायिक अकादमीत",
+        },
       ],
+    },
+  },
+  mh: {
+    grad: {
+      en: [
+        {
+          step: "Enroll in 3-year LLB",
+          icon: "⚖️",
+          details: "From recognized university in Maharashtra",
+          exams: ["MH CET Law", "Symbiosis Entrance Test"],
+          isCurrent: true,
+        },
+        {
+          step: "Complete LLB",
+          icon: "🎓",
+          details: "3-year program with minimum 45% marks",
+        },
+        {
+          step: "Bar Council Registration",
+          icon: "📋",
+          details: "Register with Bar Council of Maharashtra & Goa",
+        },
+        {
+          step: "Prepare for Maharashtra Judicial Services",
+          icon: "📚",
+          details: "Focus on Maharashtra specific laws",
+          exams: ["Maharashtra Judicial Services"],
+        },
+        {
+          step: "Appear for Exam",
+          icon: "🎯",
+          details: "Age: 21-35 years (relaxation for reserved)",
+        },
+        {
+          step: "Training at Maharashtra Judicial Academy",
+          icon: "🏫",
+          details: "1 year training program",
+        },
+      ],
+    },
+  },
+  br: {
+    grad: {
+      en: [
+        {
+          step: "Enroll in 3-year LLB",
+          icon: "⚖️",
+          details: "From Patna University or other recognized university",
+          exams: ["Bihar CET", "DU LLB"],
+          isCurrent: true,
+        },
+        {
+          step: "Complete LLB",
+          icon: "🎓",
+          details: "With minimum required percentage",
+        },
+        {
+          step: "Bar Council Registration",
+          icon: "📋",
+          details: "Register with Bihar State Bar Council",
+        },
+        {
+          step: "Prepare for Bihar Judicial Services",
+          icon: "📚",
+          details: "Focus on Bihar specific laws and procedures",
+          exams: ["Bihar Judicial Services"],
+        },
+        {
+          step: "Appear for Exam",
+          icon: "🎯",
+          details: "Age: 22-35 years with relaxation",
+        },
+        {
+          step: "Training at Bihar Judicial Academy",
+          icon: "🏫",
+          details: "Mandatory 1 year training",
+        },
+      ],
+    },
+  },
+};
+
+// ============================================
+// Exam Database with Details (Multilingual)
+// ============================================
+const ExamDatabase = {
+  en: {
+    CLAT: {
+      name: "CLAT (Common Law Admission Test)",
+      description:
+        "National level entrance exam for admission to National Law Universities",
+      eligibility: "Class 12 pass with 45% marks (40% for SC/ST)",
+      ageLimit: "No upper age limit for UG programs",
+      attempts: "No limit",
+      pattern:
+        "150 MCQs - English, GK, Maths, Legal Aptitude, Logical Reasoning",
+      frequency: "Once a year (usually in December)",
+      website: "https://consortiumofnlus.ac.in",
+    },
+    AILET: {
+      name: "AILET (All India Law Entrance Test)",
+      description: "Entrance exam for National Law University, Delhi",
+      eligibility: "Class 12 pass with 50% marks (45% for SC/ST)",
+      ageLimit: "Below 20 years for UG (relaxation for reserved)",
+      attempts: "No limit",
+      pattern: "150 MCQs - English, GK, Legal Aptitude, Reasoning, Maths",
+      frequency: "Once a year",
+      website: "https://nludelhi.ac.in",
+    },
+    "UP PCS-J": {
+      name: "UP PCS-J (Uttar Pradesh Judicial Services)",
+      description:
+        "State judicial services examination for Civil Judge positions",
+      eligibility: "LLB degree + Bar registration (for some posts)",
+      ageLimit: "22-35 years (relaxation for reserved categories)",
+      attempts: "General: 6, OBC: 9, SC/ST: No limit",
+      pattern: "Prelims (MCQs), Mains (Descriptive), Interview",
+      frequency: "Once a year",
+      website: "https://uppsc.up.nic.in",
+    },
+    "MH CET Law": {
+      name: "MH CET Law",
+      description: "Maharashtra Common Entrance Test for Law admissions",
+      eligibility: "Class 12 pass for 5-year LLB, Graduation for 3-year LLB",
+      ageLimit: "No upper age limit",
+      attempts: "No limit",
+      pattern: "150 MCQs - Legal Aptitude, GK, Logical Reasoning, English",
+      frequency: "Once a year",
+      website: "https://cetcell.mahacet.org",
+    },
+    "Maharashtra Judicial Services": {
+      name: "Maharashtra Judicial Services",
+      description: "State judicial services examination for Maharashtra",
+      eligibility: "LLB degree + Practice experience (for some posts)",
+      ageLimit: "21-35 years (relaxation applicable)",
+      attempts: "Varies by category",
+      pattern: "Prelims, Mains, Interview",
+      frequency: "As per notification",
+      website: "https://mpsc.gov.in",
+    },
+    "Bihar Judicial Services": {
+      name: "Bihar Judicial Services",
+      description: "State judicial services examination for Bihar",
+      eligibility: "LLB degree from recognized university",
+      ageLimit: "22-35 years for General (relaxation for others)",
+      attempts: "General: 4, Reserved: 7",
+      pattern: "Prelims, Mains, Interview",
+      frequency: "As per notification",
+      website: "https://bpsc.bih.nic.in",
+    },
+    "DU LLB": {
+      name: "DU LLB Entrance Exam",
+      description: "University of Delhi's LLB entrance examination",
+      eligibility: "Graduation with minimum 50% marks",
+      ageLimit: "No upper age limit",
+      attempts: "No limit",
+      pattern: "MCQs - English, GK, Legal Aptitude, Reasoning",
+      frequency: "Once a year",
+      website: "https://law.du.ac.in",
+    },
+    "State CET": {
+      name: "State Law CET",
+      description: "State Common Entrance Test for Law colleges",
+      eligibility: "Varies by state (usually Class 12 for 5-year LLB)",
+      ageLimit: "Varies by state",
+      attempts: "Varies",
+      pattern: "State-specific pattern",
+      frequency: "Once a year",
+      website: "Check respective state CET website",
+    },
+  },
+  hi: {
+    CLAT: {
+      name: "CLAT (कॉमन लॉ एडमिशन टेस्ट)",
+      description:
+        "राष्ट्रीय विधि विश्वविद्यालयों में प्रवेश के लिए राष्ट्रीय स्तर की प्रवेश परीक्षा",
+      eligibility: "कक्षा 12 उत्तीर्ण 45% अंकों के साथ (SC/ST के लिए 40%)",
+      ageLimit: "स्नातक कार्यक्रमों के लिए कोई ऊपरी आयु सीमा नहीं",
+      attempts: "कोई सीमा नहीं",
+      pattern:
+        "150 MCQs - अंग्रेजी, सामान्य ज्ञान, गणित, कानूनी योग्यता, तार्किक तर्क",
+      frequency: "साल में एक बार (आमतौर पर दिसंबर में)",
+      website: "https://consortiumofnlus.ac.in",
+    },
+    "UP PCS-J": {
+      name: "UP PCS-J (उत्तर प्रदेश न्यायिक सेवा)",
+      description: "सिविल जज पदों के लिए राज्य न्यायिक सेवा परीक्षा",
+      eligibility: "LLB डिग्री + बार पंजीकरण (कुछ पदों के लिए)",
+      ageLimit: "22-35 वर्ष (आरक्षित श्रेणियों के लिए छूट)",
+      attempts: "सामान्य: 6, OBC: 9, SC/ST: कोई सीमा नहीं",
+      pattern: "प्रारंभिक (MCQs), मुख्य (वर्णनात्मक), साक्षात्कार",
+      frequency: "साल में एक बार",
+      website: "https://uppsc.up.nic.in",
+    },
+  },
+  mr: {
+    CLAT: {
+      name: "CLAT (कॉमन लॉ अॅडमिशन टेस्ट)",
+      description:
+        "राष्ट्रीय विधी विद्यापीठांमध्ये प्रवेशासाठी राष्ट्रीय स्तरावरील प्रवेश परीक्षा",
+      eligibility: "इयत्ता 12 उत्तीर्ण 45% गुणांसह (SC/ST साठी 40%)",
+      ageLimit: "पदवीपूर्व कार्यक्रमांसाठी कोणतीही वयोमर्यादा नाही",
+      attempts: "मर्यादा नाही",
+      pattern:
+        "150 MCQs - इंग्रजी, सामान्य ज्ञान, गणित, कायदेशीर योग्यतेचा, तार्किक विचार",
+      frequency: "वर्षातून एकदा (सहसा डिसेंबरमध्ये)",
+      website: "https://consortiumofnlus.ac.in",
     },
   },
 };
@@ -771,6 +1040,12 @@ class LanguageController {
   static changeLanguage(lang) {
     AppState.currentLanguage = setLanguage(lang);
     this.updateAllText();
+
+    // Update assistant language if initialized
+    if (window.assistant) {
+      window.assistant.updateLanguage(lang);
+    }
+
     Utils.showToast(getText(lang, "welcome"), 2000);
   }
 
@@ -932,6 +1207,12 @@ class LanguageController {
     if (DOM.navTexts.profile)
       DOM.navTexts.profile.textContent = getText(lang, "navProfile");
 
+    // Update the feature section
+    if (DOM.displays.feature3Title)
+      DOM.displays.feature3Title.textContent = getText(lang, "feature3Title");
+    if (DOM.displays.feature3Desc)
+      DOM.displays.feature3Desc.textContent = getText(lang, "feature3Desc");
+
     // Update points text
     const pointsElements = document.querySelectorAll(
       ".points-text, .score-label",
@@ -1057,7 +1338,7 @@ class Navigation {
 }
 
 // ============================================
-// Roadmap Generator (Multilingual)
+// Roadmap Generator (Multilingual) with Exam Suggestions
 // ============================================
 class Roadmap {
   static generate() {
@@ -1108,12 +1389,14 @@ class Roadmap {
           step: "Complete required education",
           icon: "📚",
           details: "Current focus",
+          isCurrent: true,
         },
         {
           step: "Pursue LLB degree",
           icon: "⚖️",
           details:
             education === "grad" ? "3-year LLB" : "5-year integrated LLB",
+          exams: ["CLAT", "AILET", "State CET"],
         },
         {
           step: "Register with Bar Council",
@@ -1124,6 +1407,7 @@ class Roadmap {
           step: "Prepare for State Judicial Exam",
           icon: "🎯",
           details: "State-specific syllabus",
+          exams: ["State Judicial Services"],
         },
         {
           step: "Appear for examination",
@@ -1146,12 +1430,14 @@ class Roadmap {
           step: "आवश्यक शिक्षा पूरी करें",
           icon: "📚",
           details: "वर्तमान फोकस",
+          isCurrent: true,
         },
         {
           step: "LLB की डिग्री प्राप्त करें",
           icon: "⚖️",
           details:
             education === "grad" ? "3-वर्षीय LLB" : "5-वर्षीय एकीकृत LLB",
+          exams: ["CLAT", "AILET", "राज्य CET"],
         },
         {
           step: "बार काउंसिल में पंजीकरण करें",
@@ -1162,6 +1448,7 @@ class Roadmap {
           step: "राज्य न्यायिक परीक्षा की तैयारी करें",
           icon: "🎯",
           details: "राज्य-विशिष्ट पाठ्यक्रम",
+          exams: ["राज्य न्यायिक सेवा"],
         },
         {
           step: "परीक्षा में उपस्थित हों",
@@ -1184,12 +1471,14 @@ class Roadmap {
           step: "आवश्यक शिक्षण पूर्ण करा",
           icon: "📚",
           details: "सध्याचे लक्ष",
+          isCurrent: true,
         },
         {
           step: "LLB पदवी घ्या",
           icon: "⚖️",
           details:
             education === "grad" ? "3-वर्षाचे LLB" : "5-वर्षाचे एकात्मिक LLB",
+          exams: ["CLAT", "AILET", "राज्य CET"],
         },
         {
           step: "बार कौन्सिलमध्ये नोंदणी करा",
@@ -1200,6 +1489,7 @@ class Roadmap {
           step: "राज्य न्यायिक परीक्षेची तयारी करा",
           icon: "🎯",
           details: "राज्य-विशिष्ट अभ्यासक्रम",
+          exams: ["राज्य न्यायिक सेवा"],
         },
         {
           step: "परीक्षेसाठी उपस्थित राहा",
@@ -1233,37 +1523,113 @@ class Roadmap {
       ? stateNames[state][lang] || stateNames[state]["en"]
       : state.toUpperCase();
 
+    // Collect all unique exams from steps
+    const allExams = [];
+    steps.forEach((step) => {
+      if (step.exams) {
+        step.exams.forEach((exam) => {
+          if (
+            !allExams.includes(exam) &&
+            ExamDatabase[lang] &&
+            ExamDatabase[lang][exam]
+          ) {
+            allExams.push(exam);
+          }
+        });
+      }
+    });
+
     return `
-            <div class="card">
-                <h3><i class="fas fa-map"></i> ${getText(lang, "genericRoadmapTitle")} ${stateName}</h3>
-                <p>${getText(lang, "roadmapDescription")}</p>
-                
-                <div class="timeline">
-                    ${steps
-                      .map(
-                        (step, index) => `
-                        <div class="timeline-step ${index === 0 ? "current" : ""}">
-                            <div class="step-content">
-                                <h4 class="step-title">${step.icon} ${step.step}</h4>
-                                <p>${step.details}</p>
-                                <span class="step-timeline">${getText(lang, "step")} ${index + 1}</span>
-                            </div>
-                        </div>
-                    `,
-                      )
-                      .join("")}
+      <div class="card">
+        <h3><i class="fas fa-map"></i> ${getText(lang, "genericRoadmapTitle")} ${stateName}</h3>
+        <p>${getText(lang, "roadmapDescription")}</p>
+        
+        <div class="timeline">
+          ${steps
+            .map(
+              (step, index) => `
+              <div class="timeline-step ${step.isCurrent ? "roadmap-step-current" : ""}">
+                <div class="roadmap-step-number">${index + 1}</div>
+                <div class="step-content">
+                  <h4 class="step-title">${step.icon} ${step.step} ${step.isCurrent ? '<span class="badge-current">Current</span>' : ""}</h4>
+                  <p>${step.details}</p>
+                  ${step.timeline ? `<div class="progress-indicator"><i class="fas fa-clock"></i> ${getText(lang, "duration")}: ${step.timeline}</div>` : ""}
+                  ${step.isOptional ? `<div class="progress-indicator"><i class="fas fa-info-circle"></i> ${getText(lang, "optionalStep")}</div>` : ""}
+                  
+                  ${
+                    step.exams && step.exams.length > 0
+                      ? `
+                    <div class="progress-indicator">
+                      <i class="fas fa-graduation-cap"></i> 
+                      ${getText(lang, "recommendedExams")}: ${step.exams.join(", ")}
+                    </div>
+                  `
+                      : ""
+                  }
+                  
+                  <span class="step-timeline">${getText(lang, "step")} ${index + 1}</span>
                 </div>
-                
-                <div class="info-note">
-                    <i class="fas fa-info-circle"></i>
-                    <small>${getText(lang, "officialNote")}</small>
+              </div>
+            `,
+            )
+            .join("")}
+        </div>
+        
+        ${
+          allExams.length > 0
+            ? `
+          <div class="exam-cards-container">
+            <h4><i class="fas fa-graduation-cap"></i> ${getText(lang, "examsTitle")}</h4>
+            ${allExams
+              .map((examKey) => {
+                const exam =
+                  ExamDatabase[lang] && ExamDatabase[lang][examKey]
+                    ? ExamDatabase[lang][examKey]
+                    : ExamDatabase["en"][examKey];
+
+                if (!exam) return "";
+
+                return `
+                <div class="exam-card">
+                  <h4>${exam.name}</h4>
+                  <p class="exam-details">${exam.description}</p>
+                  
+                  <div class="exam-tags">
+                    <span class="exam-tag eligibility">
+                      <i class="fas fa-user-check"></i> ${getText(lang, "eligibility")}: ${exam.eligibility}
+                    </span>
+                    <span class="exam-tag age-limit">
+                      <i class="fas fa-birthday-cake"></i> ${getText(lang, "ageLimit")}: ${exam.ageLimit}
+                    </span>
+                    <span class="exam-tag attempts">
+                      <i class="fas fa-redo"></i> ${getText(lang, "attempts")}: ${exam.attempts}
+                    </span>
+                  </div>
+                  
+                  <div class="exam-info">
+                    <p><strong>${getText(lang, "examPattern")}:</strong> ${exam.pattern}</p>
+                    <p><strong>${getText(lang, "frequency")}:</strong> ${exam.frequency}</p>
+                    ${exam.website ? `<p><a href="${exam.website}" target="_blank" rel="noopener">${getText(lang, "officialWebsite")} <i class="fas fa-external-link-alt"></i></a></p>` : ""}
+                  </div>
                 </div>
-                
-                <button id="trySimulationFromRoadmap" class="btn btn-primary btn-block">
-                    <i class="fas fa-gavel"></i> ${getText(lang, "trySimulation")}
-                </button>
-            </div>
-        `;
+              `;
+              })
+              .join("")}
+          </div>
+        `
+            : ""
+        }
+        
+        <div class="info-note">
+          <i class="fas fa-info-circle"></i>
+          <small>${getText(lang, "officialNote")}</small>
+        </div>
+        
+        <button id="trySimulationFromRoadmap" class="btn btn-primary btn-block">
+          <i class="fas fa-gavel"></i> ${getText(lang, "trySimulation")}
+        </button>
+      </div>
+    `;
   }
 }
 
@@ -1853,6 +2219,10 @@ class NyayaUdayApp {
 // ============================================
 document.addEventListener("DOMContentLoaded", () => {
   NyayaUdayApp.init();
+  // Initialize Nyaya Assistant
+  if (document.getElementById("assistantBtn")) {
+    window.assistant = new NyayaAssistant();
+  }
 });
 
 // Make key functions available globally for inline event handlers
